@@ -1,0 +1,31 @@
+﻿@model VidlyMovies.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+<div>
+    
+    <hr />
+    <ul class="dl-horizontal">
+        <li>
+            @Html.DisplayNameFor(model => model.MembershipType) : @Html.DisplayFor(model => model.MembershipType.MembershipTypeName)
+        </li>
+        @if(Model.Birthdate.HasValue)
+    {
+        <li>
+            @*@Html.DisplayNameFor(model => model.Birthdate) : @Model.Birthdate.Value.ToShortDateString()*@
+            Birth : @Model.Birthdate.Value.ToShortDateString()
+        </li>
+    }
+    
+
+    </ul>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
